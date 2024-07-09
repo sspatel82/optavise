@@ -1,0 +1,15 @@
+.employee-container {
+    text-align: center;
+    border: 1px solid #dfdfdf;
+    float: left;
+    margin: 5px;
+    padding: 10px;
+    .name {
+        font-weight: bold;
+    }
+    .avatar img{
+        height: 50px;
+        width: 50px;
+        margin: 0px auto;
+    }
+}

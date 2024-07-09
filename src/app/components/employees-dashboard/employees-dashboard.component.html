@@ -1,0 +1,23 @@
+<fieldset>
+  <legend>Filter by department</legend>
+  <div
+    class="department-filter-container"
+    *ngFor="let department of departments"
+  >
+    <div class="department-filter">
+      <input
+        type="checkbox"
+        [checked]="true"
+        (change)="filterEmployees($event, department)"
+      />
+      <label>{{ department }}</label>
+    </div>
+  </div>
+</fieldset>
+
+<div
+  class="employees-container"
+  *ngFor="let employee of employees | sortBy : 'dateOfHire' : 'desc'"
+>
+  <optavise-employee [employee]="employee" [hidden]="!filteredEmployees?.includes(employee)"></optavise-employee>
+</div>

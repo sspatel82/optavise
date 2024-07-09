@@ -1,0 +1,16 @@
+<!-- create template to display Employee -->
+ <div class="employee-container" *ngIf="employee">
+    <div class="id">
+        {{employee.id}}
+        <span class="vip-tag" *ngIf="employee.dateOfHire | isVip">[VIP]</span>
+    </div>
+    <div class="avatar">
+        <img src="{{employee.avatar}}" />
+    </div>
+    <div class="name">{{employee.firstName}}, {{employee.lastName}}</div>
+    <div class="department">{{employee.department}}</div>
+    <div class="position">{{employee.position}}</div>
+    <div class="dob">DOB:{{employee.dateOfBirth}}</div>
+    <div class="doh">Hired:{{employee.dateOfHire}}</div>
+    <div class="married">{{(employee.married?'Married':'Unmarried')}}</div>
+</div>
