@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrl: './employees-dashboard.component.scss',
 })
 export class EmployeesDashboardComponent implements OnInit {
-  selectedDepartments: string[] = [];
+  selectedDepartment: string = "All";
   filterForm: FormGroup = this.fb.group({
     departments: this.fb.array([]),
   });
@@ -27,22 +27,15 @@ export class EmployeesDashboardComponent implements OnInit {
   });
     this.dataService.getDepartments().subscribe((departments) => {
       this.departments = [...departments];
-      this.selectedDepartments = [...departments];
     });
   }
-  filterEmployees(event: any, department: string): void {
-    if (this.departments?.length) {
-      if (!event?.target?.checked) {
-        this.selectedDepartments = this.selectedDepartments.filter(
-          (selectedDepartment) => selectedDepartment !== department
-        );
-      } else {
-        this.selectedDepartments.push(department);
-      }
-      console.log(this.selectedDepartments);
+  filterEmployees(): void {
+    if (this.selectedDepartment !== "All") {
       this.filteredEmployees = this.employees?.filter((employee) =>
-        this.selectedDepartments.includes(employee.department)
+        employee.department === this.selectedDepartment
       );
+    } else {
+      this.filteredEmployees = this.employees;
     }
   }
 }

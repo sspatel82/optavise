@@ -8,7 +8,9 @@ import { EmployeeComponent } from './components/employee/employee.component';
 import { provideHttpClient } from '@angular/common/http';
 import { SortByPipe } from './pipes/sort-by.pipe';
 import { IsVipPipe } from './pipes/is-vip.pipe';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MaterialUiModule } from './material-ui.module';
 
 @NgModule({
   declarations: [
@@ -21,9 +23,11 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MaterialUiModule,
+    FormsModule
   ],
-  providers: [provideHttpClient()],
+  providers: [provideHttpClient(), provideAnimationsAsync()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

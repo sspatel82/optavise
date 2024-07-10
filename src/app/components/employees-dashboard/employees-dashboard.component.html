@@ -1,23 +1,26 @@
-<fieldset>
-  <legend>Filter by department</legend>
-  <div
-    class="department-filter-container"
-    *ngFor="let department of departments"
-  >
-    <div class="department-filter">
-      <input
-        type="checkbox"
-        [checked]="true"
-        (change)="filterEmployees($event, department)"
-      />
-      <label>{{ department }}</label>
-    </div>
+<div class="filter-box">
+  <div class="title">Employee</div>
+  <div class="department-selection">
+    <mat-select
+      placeholder="Department"
+      [(ngModel)]="selectedDepartment"
+      (selectionChange)="filterEmployees()"
+    >
+      <mat-option value="All">All</mat-option>
+      <mat-option *ngFor="let department of departments" [value]="department">{{
+        department
+      }}</mat-option>
+    </mat-select>
   </div>
-</fieldset>
+</div>
 
 <div
   class="employees-container"
-  *ngFor="let employee of employees | sortBy : 'dateOfHire' : 'desc'"
 >
-  <optavise-employee [employee]="employee" [hidden]="!filteredEmployees?.includes(employee)"></optavise-employee>
+  <div class="employee-container">
+    <optavise-employee *ngFor="let employee of employees | sortBy : 'dateOfHire' : 'desc'"
+      [employee]="employee"
+      [hidden]="!filteredEmployees?.includes(employee)"
+    ></optavise-employee>
+  </div>
 </div>

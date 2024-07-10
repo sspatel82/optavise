@@ -1,15 +1,52 @@
-.employee-container {
-    text-align: center;
+.employee {
+    width: 45%;
     border: 1px solid #dfdfdf;
+    border-radius: 5px;
     float: left;
     margin: 5px;
     padding: 10px;
     .name {
         font-weight: bold;
     }
-    .avatar img{
-        height: 50px;
-        width: 50px;
-        margin: 0px auto;
+    .avatar {
+        float: left;
+        width:30%;
+        img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+        }
+    }
+    .profile {
+        text-align: left;
+        float: left;
+        width: 50%;
+        padding: 20px;
+        .name {
+            font-weight: bold;
+        }
+        .position {
+            color: #aaa
+        }
+
+        .details {
+            margin-top: 20px;
+            font-size: 12px;
+            div {
+                float: left;
+                margin-right: 10px;
+                padding: 2px 5px;
+                border-radius: 10px;
+
+            }
+            .department, .married {
+                color: blue;
+                background-color: rgb(0,0,255,0.1);
+            }
+            .vip-tag {
+                color: rgb(156, 6, 6);
+                background-color: rgb(225, 94, 116, 0.3);
+            }
+        }
     }
 }
