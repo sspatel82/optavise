@@ -1,24 +1,27 @@
 <div class="filter-box">
-  <div class="title">Employee</div>
-  <div class="department-selection">
-    <mat-select
-      placeholder="Department"
-      [(ngModel)]="selectedDepartment"
-      (selectionChange)="filterEmployees()"
-    >
-      <mat-option value="All">All</mat-option>
-      <mat-option *ngFor="let department of departments" [value]="department">{{
-        department
-      }}</mat-option>
-    </mat-select>
+  <div class="filter">
+    <div class="title">Employee</div>
+    <div class="department-selection">
+      <mat-select
+        placeholder="Department"
+        [(ngModel)]="selectedDepartment"
+        (selectionChange)="filterEmployees()"
+      >
+        <mat-option value="All">All</mat-option>
+        <mat-option
+          *ngFor="let department of departments"
+          [value]="department"
+          >{{ department }}</mat-option
+        >
+      </mat-select>
+    </div>
   </div>
 </div>
 
-<div
-  class="employees-container"
->
+<div class="employees-container">
   <div class="employee-container">
-    <optavise-employee *ngFor="let employee of employees | sortBy : 'dateOfHire' : 'desc'"
+    <optavise-employee
+      *ngFor="let employee of employees | sortBy : 'dateOfHire' : 'desc'"
       [employee]="employee"
       [hidden]="!filteredEmployees?.includes(employee)"
     ></optavise-employee>
